@@ -1,1 +1,64 @@
-<p>groups works!</p>
+<div class="container mt-4">
+
+  <h2>Grupos</h2>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+          <input
+            class="form-control"
+            placeholder="Nombre del grupo"
+            [(ngModel)]="groupName"
+          >
+
+        </div>
+
+        <div class="col-md-4">
+
+          <button
+            class="btn btn-success w-100"
+            (click)="createGroup()"
+          >
+            Crear Grupo
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <table class="table table-striped">
+
+    <thead>
+
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(group of groups; track group.id){
+
+        <tr>
+          <td>{{group.id}}</td>
+          <td>{{group.name}}</td>
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>
