@@ -48,4 +48,36 @@ export class GroupService {
 
   }
 
+  updateGroup(
+    id: number,
+    name: string
+  ) {
+
+    return this.http.put(
+      `${this.apiUrl}/${id}`,
+      { name },
+      {
+        headers: {
+          Authorization:
+            `Bearer ${this.getToken()}`
+        }
+      }
+    );
+
+  }
+
+  deleteGroup(id: number) {
+
+    return this.http.delete(
+      `${this.apiUrl}/${id}`,
+      {
+        headers: {
+          Authorization:
+            `Bearer ${this.getToken()}`
+        }
+      }
+    );
+
+  }
+
 }

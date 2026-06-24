@@ -45,6 +45,8 @@ export class Groups implements OnInit {
 
   groupName = '';
 
+  editingGroupId: number | null = null;
+
   ngOnInit(): void {
 
     if (typeof window !== 'undefined') {
@@ -96,6 +98,80 @@ export class Groups implements OnInit {
         next: () => {
 
           this.groupName = '';
+
+          this.loadGroups();
+
+        },
+
+        error: (error) => {
+
+          console.error(error);
+
+        }
+
+      });
+
+  }
+
+  startEdit(group: any) {
+
+    this.editingGroupId = group.id;
+
+    this.groupName = group.name;
+
+  }
+
+  updateGroup() {
+
+    if (
+      this.editingGroupId === null ||
+      !this.groupName.trim()
+    ) {
+      return;
+    }
+
+    this.groupService
+      .updateGroup(
+        this.editingGroupId,
+        this.groupName
+      )
+      .subscribe({
+
+        next: () => {
+
+          this.editingGroupId = null;
+
+          this.groupName = '';
+
+          this.loadGroups();
+
+        },
+
+        error: (error) => {
+
+          console.error(error);
+
+        }
+
+      });
+
+  }
+
+  deleteGroup(id: number) {
+
+    if (
+      !confirm(
+        '¿Eliminar grupo?'
+      )
+    ) {
+      return;
+    }
+
+    this.groupService
+      .deleteGroup(id)
+      .subscribe({
+
+        next: () => {
 
           this.loadGroups();
 

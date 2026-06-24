@@ -9,6 +9,9 @@ from './pages/groups/groups';
 import { Students }
 from './pages/students/students';
 
+import { GroupDetails }
+from './pages/group-details/group-details';
+
 export const routes: Routes = [
 
   {
@@ -24,6 +27,11 @@ export const routes: Routes = [
   {
     path: 'students/:groupId',
     component: Students
+  },
+
+  {
+    path: 'groups/:id',
+    component: GroupDetails
   }
 
 ];
