@@ -6,6 +6,9 @@ from './pages/login/login';
 import { Groups }
 from './pages/groups/groups';
 
+import { Students }
+from './pages/students/students';
+
 export const routes: Routes = [
 
   {
@@ -16,6 +19,11 @@ export const routes: Routes = [
   {
     path: 'groups',
     component: Groups
+  },
+
+  {
+    path: 'students/:groupId',
+    component: Students
   }
 
 ];

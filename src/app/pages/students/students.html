@@ -1,1 +1,79 @@
-<p>students works!</p>
+<div class="container mt-4">
+
+  <h2>Alumnos</h2>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+          <input
+            class="form-control"
+            placeholder="Nombre del alumno"
+            [(ngModel)]="studentName"
+          >
+
+        </div>
+
+        <div class="col-md-4">
+
+          <button
+            class="btn btn-success w-100"
+            (click)="createStudent()"
+          >
+            Crear Alumno
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <table class="table table-striped">
+
+    <thead>
+
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(student of students; track student.id){
+
+        <tr>
+
+          <td>{{student.id}}</td>
+
+          <td>{{student.name}}</td>
+
+          <td>
+
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteStudent(student.id)"
+            >
+              Eliminar
+            </button>
+
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

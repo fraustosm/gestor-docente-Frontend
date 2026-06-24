@@ -42,6 +42,7 @@
       <tr>
         <th>ID</th>
         <th>Nombre</th>
+        <th>Acciones</th>
       </tr>
 
     </thead>
@@ -51,8 +52,22 @@
       @for(group of groups; track group.id){
 
         <tr>
+
           <td>{{group.id}}</td>
+
           <td>{{group.name}}</td>
+
+          <td>
+
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="openStudents(group.id)"
+            >
+              Ver alumnos
+            </button>
+
+          </td>
+
         </tr>
 
       }

@@ -1,1 +1,53 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand">
+
+      <i class="bi bi-mortarboard-fill me-2"></i>
+
+      Gestor Docente
+
+    </a>
+
+    <div class="navbar-nav ms-auto">
+
+      <a
+        class="nav-link"
+        routerLink="/groups"
+      >
+        Grupos
+      </a>
+
+      <a
+        class="nav-link"
+        routerLink="/students/2"
+      >
+        Alumnos
+      </a>
+
+      <a
+        class="nav-link"
+        routerLink="/reports"
+      >
+        Reportes
+      </a>
+
+      <a
+        class="nav-link text-warning"
+        (click)="logout()"
+      >
+        Salir
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="container-fluid mt-3">
+
+  <router-outlet></router-outlet>
+
+</div>
