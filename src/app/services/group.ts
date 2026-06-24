@@ -11,17 +11,22 @@ export class GroupService {
   private apiUrl =
     'http://localhost:3000/api/groups';
 
-  getGroups() {
+  private getToken() {
 
-    const token =
-      localStorage.getItem('token');
+    return typeof window !== 'undefined'
+      ? localStorage.getItem('token')
+      : '';
+
+  }
+
+  getGroups() {
 
     return this.http.get(
       this.apiUrl,
       {
         headers: {
           Authorization:
-            `Bearer ${token}`
+            `Bearer ${this.getToken()}`
         }
       }
     );
@@ -30,16 +35,13 @@ export class GroupService {
 
   createGroup(name: string) {
 
-    const token =
-      localStorage.getItem('token');
-
     return this.http.post(
       this.apiUrl,
       { name },
       {
         headers: {
           Authorization:
-            `Bearer ${token}`
+            `Bearer ${this.getToken()}`
         }
       }
     );

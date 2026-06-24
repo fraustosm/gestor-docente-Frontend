@@ -23,11 +23,16 @@ export class Groups implements OnInit {
 
   groupName = '';
 
-  ngOnInit(): void {
+
+ngOnInit(): void {
+
+  if (typeof window !== 'undefined') {
 
     this.loadGroups();
 
   }
+
+}
 
   loadGroups() {
 

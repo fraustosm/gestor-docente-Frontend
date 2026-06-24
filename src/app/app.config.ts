@@ -15,7 +15,7 @@ import {
 
 import {
   provideHttpClient
-} from '@angular/common/http';
+} from '@angular/common/http';70
 
 import { routes } from './app.routes';
 
@@ -30,10 +30,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
 
     provideHttpClient(),
-
-    provideClientHydration(
-      withEventReplay()
-    )
 
   ]
 
