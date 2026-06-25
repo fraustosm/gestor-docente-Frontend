@@ -1,59 +1,100 @@
-# Frontend
+# Gestor Docente
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+## Descripción
 
-## Development server
+Gestor Docente es una aplicación web desarrollada para facilitar la administración de grupos escolares, estudiantes, asistencias y calificaciones.
 
-To start a local development server, run:
+El sistema permite a los docentes administrar la información académica de sus alumnos mediante una interfaz sencilla e intuitiva.
+
+---
+
+## Características
+
+* Inicio de sesión mediante JWT.
+* Administración de grupos.
+* Administración de estudiantes.
+* Registro de asistencia.
+* Registro de calificaciones.
+* Consulta de reportes académicos.
+* Base de datos PostgreSQL.
+* API REST con Express.
+* Frontend desarrollado con Angular.
+
+---
+
+## Tecnologías utilizadas
+
+### Frontend
+
+* Angular 20
+* TypeScript
+* Bootstrap 5
+* Bootstrap Icons
+
+### Backend
+
+* Node.js
+* Express
+* JWT
+* bcrypt
+* PostgreSQL
+
+### Base de datos
+
+* PostgreSQL
+
+### Despliegue
+
+* Frontend: Vercel
+* Backend: Render
+* Base de datos: Neon
+
+---
+
+## Instalación
+
+### Backend
 
 ```bash
+npm install
+npm start
+```
+
+### Frontend
+
+```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Variables de entorno
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```env
+DB_HOST=
+DB_PORT=
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+JWT_SECRET=
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Funcionalidades
 
-## Building
+* Crear grupos
+* Editar grupos
+* Eliminar grupos
+* Registrar estudiantes
+* Eliminar estudiantes
+* Registrar asistencia
+* Registrar calificaciones
+* Consultar reportes
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## Autor
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+María Frausto
