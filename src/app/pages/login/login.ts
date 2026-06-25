@@ -50,7 +50,7 @@ export class Login {
 
         console.error('LOGIN ERROR', error);
 
-        alert('Error de login');
+        alert(JSON.stringify(error.error));
 
       }
 
