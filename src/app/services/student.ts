@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+;
 @Injectable({
   providedIn: 'root'
 })
@@ -39,10 +39,9 @@ export class StudentService {
   ) {
 
     return this.http.post(
-      this.apiUrl,
+      `${this.apiUrl}/group/${groupId}`,
       {
-        name,
-        groupId
+        name
       },
       {
         headers: {

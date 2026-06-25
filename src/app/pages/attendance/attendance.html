@@ -1,1 +1,85 @@
-<p>attendance works!</p>
+<div class="container mt-4">
+
+  <h2>Control de Asistencia</h2>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <button
+        class="btn btn-success me-2"
+        (click)="registerAttendance('Present')"
+      >
+        Registrar Presente
+      </button>
+
+      <button
+        class="btn btn-danger"
+        (click)="registerAttendance('Absent')"
+      >
+        Registrar Ausente
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <h5>Resumen</h5>
+
+      <p>
+        Total registros:
+        {{report.total}}
+      </p>
+
+      <p>
+        Presentes:
+        {{report.presents}}
+      </p>
+
+      <p>
+        Porcentaje:
+        {{report.percentage}}%
+      </p>
+
+    </div>
+
+  </div>
+
+  <table class="table table-striped">
+
+    <thead>
+
+      <tr>
+        <th>Fecha</th>
+        <th>Estado</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(item of attendance; track item.id){
+
+        <tr>
+
+          <td>
+            {{item.attendance_date | date:'dd/MM/yyyy'}}
+          </td>
+
+          <td>
+            {{item.status}}
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

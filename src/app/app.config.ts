@@ -1,7 +1,7 @@
 import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection
+  provideZonelessChangeDetection,
 } from '@angular/core';
 
 import {
@@ -9,13 +9,12 @@ import {
 } from '@angular/router';
 
 import {
-  provideClientHydration,
-  withEventReplay
+  provideClientHydration
 } from '@angular/platform-browser';
 
 import {
   provideHttpClient
-} from '@angular/common/http';70
+} from '@angular/common/http';
 
 import { routes } from './app.routes';
 
@@ -25,11 +24,13 @@ export const appConfig: ApplicationConfig = {
 
     provideBrowserGlobalErrorListeners(),
 
-    provideZonelessChangeDetection(),
-
     provideRouter(routes),
 
     provideHttpClient(),
+
+    provideClientHydration(),
+
+    provideZonelessChangeDetection(),
 
   ]
 

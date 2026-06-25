@@ -1,1 +1,102 @@
-<p>grades works!</p>
+<div class="container mt-4">
+
+  <h2>Calificaciones</h2>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col-md-5">
+
+          <input
+            class="form-control"
+            placeholder="Actividad"
+            [(ngModel)]="activityName"
+          >
+
+        </div>
+
+        <div class="col-md-3">
+
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Calificación"
+            [(ngModel)]="grade"
+          >
+
+        </div>
+
+        <div class="col-md-4">
+
+          <button
+            class="btn btn-success w-100"
+            (click)="createGrade()"
+          >
+            Guardar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <h5>Resumen</h5>
+
+      <p>
+        Actividades:
+        {{report.activities}}
+      </p>
+
+      <p>
+        Promedio:
+        {{report.average}}
+      </p>
+
+    </div>
+
+  </div>
+
+  <table class="table table-striped">
+
+    <thead>
+
+      <tr>
+        <th>Actividad</th>
+        <th>Calificación</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for(item of grades; track item.id){
+
+        <tr>
+
+          <td>
+            {{item.activity_name}}
+          </td>
+
+          <td>
+            {{item.grade}}
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

@@ -1,1 +1,135 @@
-<p>reports works!</p>
+<div class="container mt-4">
+
+  <h2>Reporte del Alumno</h2>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+
+      <h4>
+        {{ report.student?.name }}
+      </h4>
+
+      <p>
+        <strong>Promedio:</strong>
+        {{ report.average }}
+      </p>
+
+      <p>
+        <strong>Porcentaje de asistencia:</strong>
+        {{ report.attendancePercentage }}%
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="card mb-4">
+
+    <div class="card-header">
+
+      Calificaciones
+
+    </div>
+
+    <div class="card-body">
+
+      <table class="table table-striped">
+
+        <thead>
+
+          <tr>
+
+            <th>Actividad</th>
+
+            <th>Calificación</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for(item of report.grades; track $index){
+
+            <tr>
+
+              <td>
+
+                {{ item.activity_name }}
+
+              </td>
+
+              <td>
+
+                {{ item.grade }}
+
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-header">
+
+      Historial de Asistencias
+
+    </div>
+
+    <div class="card-body">
+
+      <table class="table table-striped">
+
+        <thead>
+
+          <tr>
+
+            <th>Fecha</th>
+
+            <th>Estado</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for(item of report.attendance; track $index){
+
+            <tr>
+
+              <td>
+
+                {{ item.attendance_date | date:'dd/MM/yyyy' }}
+
+              </td>
+
+              <td>
+
+                {{ item.status }}
+
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

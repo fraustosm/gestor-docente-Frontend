@@ -14,18 +14,26 @@ import {
 } from '@angular/forms';
 
 import {
-  ActivatedRoute
+  ActivatedRoute,
+  RouterLink
 } from '@angular/router';
 
 import {
   StudentService
 } from '../../services/student';
 
+import { GroupService } from '../../services/group';
+
+import {
+  AttendanceService
+} from '../../services/attendance';
+
 @Component({
   selector: 'app-students',
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterLink,
   ],
   templateUrl: './students.html',
   styleUrl: './students.css',
@@ -38,6 +46,12 @@ export class Students implements OnInit {
   private studentService =
     inject(StudentService);
 
+  private groupService =
+    inject(GroupService);
+
+  private attendanceService =
+    inject(AttendanceService);
+
   private cdr =
     inject(ChangeDetectorRef);
 
@@ -46,6 +60,7 @@ export class Students implements OnInit {
   studentName = '';
 
   students: any[] = [];
+  group: any = {};
 
   ngOnInit(): void {
 
@@ -57,7 +72,15 @@ export class Students implements OnInit {
         )
       );
 
-      this.loadStudents();
+      //this.loadStudents();
+      this.groupService.getGroup(this.groupId).subscribe({
+        next: (response: any) => {
+          this.group = response;
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
 
     }
 
@@ -105,6 +128,36 @@ export class Students implements OnInit {
           this.studentName = '';
 
           this.loadStudents();
+
+        },
+
+        error: (error) => {
+
+          console.error(error);
+
+        }
+
+      });
+
+  }
+
+  registerAttendance(
+    studentId: number,
+    status: string
+  ) {
+
+    this.attendanceService
+      .registerAttendance(
+        studentId,
+        status
+      )
+      .subscribe({
+
+        next: () => {
+
+          alert(
+            `Asistencia registrada: ${status}`
+          );
 
         },
 

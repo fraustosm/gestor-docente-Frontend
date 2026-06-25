@@ -33,6 +33,20 @@ export class GroupService {
 
   }
 
+  getGroup(id: number) {
+
+    return this.http.get(
+      `${this.apiUrl}/${id}`,
+      {
+        headers: {
+          Authorization:
+            `Bearer ${this.getToken()}`
+        }
+      }
+    );
+
+  }
+
   createGroup(name: string) {
 
     return this.http.post(
