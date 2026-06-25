@@ -72,7 +72,7 @@ export class Students implements OnInit {
         )
       );
 
-      //this.loadStudents();
+      this.loadStudents();
       this.groupService.getGroup(this.groupId).subscribe({
         next: (response: any) => {
           this.group = response;
