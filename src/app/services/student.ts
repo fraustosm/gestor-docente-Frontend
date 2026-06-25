@@ -9,7 +9,7 @@ export class StudentService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://localhost:3000/api/students';
+    'https://gestor-docente.onrender.com/students';
 
   private getToken() {
 

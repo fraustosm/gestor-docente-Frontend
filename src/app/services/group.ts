@@ -9,7 +9,7 @@ export class GroupService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://localhost:3000/api/groups';
+    'https://gestor-docente.onrender.com/groups';
 
   private getToken() {
 
