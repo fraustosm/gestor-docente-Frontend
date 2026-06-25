@@ -9,7 +9,7 @@ export class AuthService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://localhost:3000/api';
+    'https://gestor-docente.onrender.com';
 
   login(data: any) {
 
